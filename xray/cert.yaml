@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  annotations:
+  name: meow-doow-ml
+  namespace: fight-club
+spec:
+  commonName: meow.doowoc.ml
+  dnsNames:
+    - meow.doowoc.ml
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-prod
+  secretName: meow-doow-ml-tls

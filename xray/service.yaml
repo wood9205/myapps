@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: xray-svc
+  namespace: fight-club
+spec:
+  selector:
+    app: xray
+  ports:
+    - name: outsideproxy
+      port: 443
+      targetPort: 443
+    - name: insideproxy
+      port: 10801
+      targetPort: 10801
