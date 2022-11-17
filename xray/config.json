@@ -27,7 +27,7 @@
             "settings": {
                 "clients": [
                     {
-                        "id": "b52c5910-4af3-4ae9-a0c3-d01627bed6d1",
+                        "id": "",
                         "email": "meow.doowoc.ml_VLESS_XTLS/TLS-direct_TCP",
                         "level": 0
                     }
@@ -35,7 +35,7 @@
                 "decryption": "none",
                 "fallbacks": [
                     {
-                        "dest": "argo-cd-argocd-server.argo:443",
+                        "dest": "",
                         "xver": 0
                     }
                 ]
