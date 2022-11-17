@@ -1,0 +1,10 @@
+resources:
+  - deploy.yaml
+  - service.yaml
+  - cert.yaml
+  - ci_prod.yaml
+configMapGenerator:
+  - name: xray-cm-1
+    namespace: fight-club
+    files:
+      - config.json

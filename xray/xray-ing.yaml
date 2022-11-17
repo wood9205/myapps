@@ -1,0 +1,17 @@
+kind: IngressRouteTCP
+apiVersion: traefik.containo.us/v1alpha1
+metadata:
+  name: xray-tcp
+  namespace: fight-club
+spec:
+  tls:
+    passthrough: true
+    secretName: meow-doow-ml-tls
+  entryPoints:
+    - websecure
+  routes:
+    - match: HostSNI(`meow.doowoc.ml`)
+      services:
+        - name: xray-svc
+          namespace: fight-club
+          port: 443
