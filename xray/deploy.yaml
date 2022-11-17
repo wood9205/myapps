@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xray
+  namespace: fight-club
+spec:
+  selector:
+    matchLabels:
+      app: xray
+  template:
+    metadata:
+      labels:
+        app: xray
+    spec:
+      nodeSelector:
+        loc: ru
+      dnsPolicy: ClusterFirst
+      containers:
+        - name: xray
+          image: teddysun/xray
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
+          ports:
+            - containerPort: 443
+            - containerPort: 10801
+          volumeMounts:
+            - name: xray-config
+              mountPath: "/etc/xray"
+            - name: cert-file
+              mountPath: "/etc/cert"
+              readOnly: true
+      volumes:
+        - name: xray-config
+          configMap:
+            name: xray-cm-1
+        - name: cert-file
+          secret:
+            secretName: meow-doow-ml-tls
